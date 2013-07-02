@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>bootstrap-datetimepicker</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>6aa746736d-SNAPSHOT</version>
     <name>Bootstrap DateTime Picker</name>
     <description>WebJar for Bootstrap DateTime Picker</description>
     <url>http://webjars.org</url>
@@ -41,7 +41,8 @@
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <upstreamVersion>6aa746736df02b96a443c52ce61ea9ed2fcbd560</upstreamVersion>
+        <upstreamVersion>6aa746736d</upstreamVersion>
+        <upstreamCommit>6aa746736df02b96a443c52ce61ea9ed2fcbd560</upstreamCommit>
         <sourceUrl>https://github.com/smalot/bootstrap-datetimepicker/archive</sourceUrl>
         <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstreamVersion}</destDir>
     </properties>
@@ -58,7 +59,7 @@
                         <goals><goal>download-single</goal></goals>
                         <configuration>
                             <url>${sourceUrl}</url>
-                            <fromFile>${upstreamVersion}.zip</fromFile>
+                            <fromFile>${upstreamCommit}.zip</fromFile>
                             <toFile>${project.build.directory}/${project.artifactId}.zip</toFile>
                         </configuration>
                     </execution>
@@ -78,7 +79,7 @@
                                 <unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}" />
                                 <echo message="moving resources" />
                                 <move todir="${destDir}">
-                                    <fileset dir="${project.build.directory}/bootstrap-datetimepicker-${upstreamVersion}" excludes="tests/,build/,sample/,screenshot/" />
+                                    <fileset dir="${project.build.directory}/bootstrap-datetimepicker-${upstreamCommit}" excludes="tests/,build/,sample/,screenshot/" />
                                 </move>
                             </target>
                         </configuration>
