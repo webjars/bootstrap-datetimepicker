@@ -41,7 +41,7 @@
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <upstreamVersion>6aa746736d</upstreamVersion>
+        <upstreamVersion>6aa746736df02b96a443c52ce61ea9ed2fcbd560</upstreamVersion>
         <sourceUrl>https://github.com/smalot/bootstrap-datetimepicker/archive</sourceUrl>
         <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstreamVersion}</destDir>
     </properties>
@@ -58,7 +58,7 @@
                         <goals><goal>download-single</goal></goals>
                         <configuration>
                             <url>${sourceUrl}</url>
-                            <fromFile>v${upstreamVersion}.zip</fromFile>
+                            <fromFile>${upstreamVersion}.zip</fromFile>
                             <toFile>${project.build.directory}/${project.artifactId}.zip</toFile>
                         </configuration>
                     </execution>
@@ -78,7 +78,7 @@
                                 <unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}" />
                                 <echo message="moving resources" />
                                 <move todir="${destDir}">
-                                    <fileset dir="${project.build.directory}/bootstrap-datepicker-${upstreamVersion}" excludes="tests/,build/" />
+                                    <fileset dir="${project.build.directory}/bootstrap-datetimepicker-${upstreamVersion}" excludes="tests/,build/" />
                                 </move>
                             </target>
                         </configuration>
