@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>bootstrap-datetimepicker</artifactId>
-    <version>6aa746736d-SNAPSHOT</version>
+    <version>2.2.0-SNAPSHOT</version>
     <name>Bootstrap DateTime Picker</name>
     <description>WebJar for Bootstrap DateTime Picker</description>
     <url>http://webjars.org</url>
@@ -37,12 +37,16 @@
             <name>James Ward</name>
             <email>james@jamesward.org</email>
         </developer>
+        <developer>
+            <id>leonardinius</id>
+            <name>Leonids Maslovs</name>
+            <email>leonids.maslovs@galeoconsulting.com</email>
+        </developer>
     </developers>
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <upstreamVersion>6aa746736d</upstreamVersion>
-        <upstreamCommit>6aa746736df02b96a443c52ce61ea9ed2fcbd560</upstreamCommit>
+        <upstreamVersion>2.2.0</upstreamVersion>
         <sourceUrl>https://github.com/smalot/bootstrap-datetimepicker/archive</sourceUrl>
         <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstreamVersion}</destDir>
     </properties>
@@ -59,7 +63,7 @@
                         <goals><goal>download-single</goal></goals>
                         <configuration>
                             <url>${sourceUrl}</url>
-                            <fromFile>${upstreamCommit}.zip</fromFile>
+                            <fromFile>${upstreamVersion}.zip</fromFile>
                             <toFile>${project.build.directory}/${project.artifactId}.zip</toFile>
                         </configuration>
                     </execution>
@@ -79,7 +83,19 @@
                                 <unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}" />
                                 <echo message="moving resources" />
                                 <move todir="${destDir}">
-                                    <fileset dir="${project.build.directory}/bootstrap-datetimepicker-${upstreamCommit}" excludes="tests/,build/,sample/,screenshot/" />
+                                    <fileset dir="${project.build.directory}/bootstrap-datetimepicker-${upstreamVersion}">
+                                        <exclude name="tests/"/>
+                                        <exclude name="build/"/>
+                                        <exclude name="sample/"/>
+                                        <exclude name="sample in bootstrap v2/"/>
+                                        <exclude name="sample in bootstrap v3/"/>
+                                        <exclude name="screenshot/"/>
+                                        <exclude name="less/"/>
+                                        <exclude name="bower.json"/>
+                                        <exclude name=".travis.yml"/>
+                                        <exclude name="README.md"/>
+                                        <exclude name="minify.sh"/>
+                                    </fileset>
                                 </move>
                             </target>
                         </configuration>
